@@ -35,22 +35,16 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
     // 3- PASTE YOUR CODE OUTPUT FROM SIMLI BELOW 👇
     /**********************************/
 
-    const response = await fetch("https://api.simli.ai/startE2ESession", {
-      method: "POST",
+    const response = await fetch("https://api.simli.ai/session/1eb528b7-228c-49dd-bbaa-b4d223311631/gAAAAABoNCZ9a3OxqL-VtyqYS1uP-ecsZcU_UQcyXZXr3VWl2xLj3arZbKCawTUeBRBrii2g5a36kCMYMugEEkxrA5FtM6VJSxvRPyLjkloA7j-vPWo9Ic7g17KUEX5HdAOKnaVBukYqiRo64u2EfktypMxdglTkUfk3qIv-IItFwlxjBevi0pMqmhe-9y7BUzTPAgVtFl-l-dbkveH42wAP926p4Wo-B9wKjSrNqvgSm886CBO5E16nbU0aHVbX4_ye0X_ahVUlp3fAyDmvle7BV5UHwTcshoxCzhXN2DLs9Dekf6eU-BLh8rhopnwbDt1gFSlLJgIPLKCi5zQK1618TEQAz0gsmgOUDGIfu1qqcSl6_o_Nmt71MaleijMzMZZdVb1DY6OFylLvM1KINzaNANyqFVFQhg==", {
+      method: "GET",
       headers: {
-        "Content-Type": "application/json",
+          "Content-Type": "application/json",
+          "Accept": "application/json",
       },
-      body: JSON.stringify({
-        apiKey: SIMLI_API_KEY,
-        faceId: "",
-        voiceId: "",
-        firstMessage: "",
-        systemPrompt: "",
-      }),
-    });
-
-    const data = await response.json();
-    const roomUrl = data.roomUrl;
+  })
+  
+  const data = await response.json();
+  const roomUrl = data.roomUrl;
 
     /**********************************/
     
@@ -155,7 +149,7 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
               <IconSparkleLoader className="h-[20px] animate-loader" />
             ) : (
               <span className="font-abc-repro-mono font-bold w-[164px]">
-                Test Interaction
+                Start
               </span>
             )}
           </button>
@@ -169,7 +163,7 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
                 )}
               >
                 <span className="font-abc-repro-mono group-hover:text-black font-bold w-[164px] transition-all duration-300">
-                  Stop Interaction
+                  Stop 
                 </span>
               </button>
             </div>

@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import SimliAgent from "@/app/SimliAgent";
+
+import ChatButton from "./Components/ChatButton";
 import DottedFace from "./Components/DottedFace";
 import SimliHeaderLogo from "./Components/Logo";
 import Navbar from "./Components/Navbar";
@@ -24,6 +25,7 @@ const Demo: React.FC = () => {
     <div className="bg-black min-h-screen flex flex-col items-center font-abc-repro font-normal text-sm text-white p-8">
       <SimliHeaderLogo />
       <Navbar />
+      <ChatButton />
 
       <div className="absolute top-[32px] right-[32px]">
         <text
@@ -33,39 +35,24 @@ const Demo: React.FC = () => {
           className="font-bold cursor-pointer mb-8 text-xl leading-8"
         >
           <Image className="w-[20px] inline mr-2" src={GitHubLogo} alt="" />
-          create-simli-agent
         </text>
       </div>
-      <div className="flex flex-col items-center gap-6 bg-effect15White p-6 pb-[40px] rounded-xl w-full">
-        <div>
-          {showDottedFace && <DottedFace />}
-          <SimliAgent
-            onStart={onStart}
-            onClose={onClose}
-          />
-        </div>
+      <div className="flex flex-col items-center gap-6 bg-effect15Black p-6 pb-[40px] rounded-xl w-full">
+        {showDottedFace && <DottedFace />}
       </div>
 
-      <div className="max-w-[350px] font-thin flex flex-col items-center ">
+      <div className="max-w-[400px] font-thin flex flex-col items-center mt-auto mb-24">
         <span className="font-bold mb-[8px] leading-5 ">
           {" "}
-          Create Simli Agent is a starter repo for creating visual avatars with
-          Simli{" "}
-        </span>
-        <ul className="list-decimal list-inside max-w-[350px] ml-[6px] mt-2">
-          <li className="mb-1">
-            Fill in your Simli API keys in .env file.
-          </li>
-          <li className="mb-1">
-            Create your Simli avatar at app.simli.com
-          </li>
-          <li className="mb-1">
-            Copy code output from app.simli.com and paste in <code>app/SimliAgent.tsx</code>.
-          </li>
-        </ul>
-        <span className=" mt-[16px]">
-          You can now deploy this app to Vercel, or incorporate it as part of
-          your existing project.
+           
+          <div className="text-center space-y-4">
+            <p className="text-xl font-semibold">Your AI-powered security assistant</p>
+            <div className="flex flex-col gap-2">
+              <span className="text-blue-400">• Expert security guidance and support</span>
+              <span className="text-blue-400">• 24/7 threat monitoring</span>
+              <span className="text-blue-400">• Advanced protection</span>
+            </div>
+          </div>
         </span>
       </div>
     </div>
